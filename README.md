@@ -18,6 +18,6 @@ Different utilities &amp; small distinct projects
 * ratelimit.c - some test with atomics
 
 * boost asio echo client and server (inspired by boost examples)
-** echo-client.cpp
-** echo-server.cpp
+    * echo-client.cpp
+    * echo-server.cpp
 
