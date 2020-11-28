@@ -19,7 +19,8 @@ template <typename T> class ElfDumper {
     const char* m_strings;    // Section names offset
     
     // section iterator
-    // find section with specified type, return offset & size 
+    // find section with specified name and return offset & size
+    // return <0, 0> if section not found
     const section_t findSection(const char* sname) const;
     
 public:

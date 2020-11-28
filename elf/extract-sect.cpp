@@ -5,28 +5,21 @@
 
 static void extract_section(const void *base, const char* sname, const char* outfile) {
     const char *magic = reinterpret_cast<const char *>(base);
-    
+
     if(memcmp(magic, ELFMAG, SELFMAG) != 0) 
         throw std::runtime_error("Bad ELF header!");
-    
-    switch(magic[EI_CLASS]) {
-    case ELFCLASS32:
+    else if(ELFCLASS32 == magic[EI_CLASS]) {
         std::cout << "ELFCLASS32 header found\n";
-        {
-            ElfDumper<Elf32_Ehdr> ed {base};
-            ed.dumpSection(sname, outfile);
-        }
-        break;
-    case ELFCLASS64:
-        std::cout << "ELFCLASS64 header found\n";
-        {
-            ElfDumper<Elf64_Ehdr> ed {base};
-            ed.dumpSection(sname, outfile);
-        }
-        break;
-    default:
-        throw std::runtime_error("Bad ELF class!");
+        ElfDumper<Elf32_Ehdr> ed {base};
+        ed.dumpSection(sname, outfile);
     }
+    else if (ELFCLASS64 == magic[EI_CLASS]) {
+        std::cout << "ELFCLASS64 header found\n";
+        ElfDumper<Elf64_Ehdr> ed {base};
+        ed.dumpSection(sname, outfile);
+    }
+    else 
+        throw std::runtime_error("Bad ELF class!");
 }
 
 int main(int ac, char **av) {
@@ -54,9 +47,9 @@ int main(int ac, char **av) {
     bool good = true;
     if(!section_name)
         std::cerr << "No section name specified!\n", good = false;
-    else if(!output_file) 
+    else if(!output_file)
         std::cerr << "No output file specified!\n", good = false;
-    else if(optind >= ac) 
+    else if(optind >= ac)
         std::cerr << "No elf image given!\n", good = false;
     if(good)
         elf_image = av[optind];
