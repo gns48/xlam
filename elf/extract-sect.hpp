@@ -8,8 +8,6 @@
 #include <exception>
 #include <boost/format.hpp>
 
-#define SIGSECTION_TYPE 0x80736967
-
 //ofset, size, name
 typedef std::tuple<off_t, size_t, const char*> section_t;
 
@@ -20,15 +18,9 @@ template <typename T> class ElfDumper {
     int m_shnum;              // Section table entry count
     const char* m_strings;    // Section names offset
     
-    inline void printHeader() {
-        std::cout << boost::format("Section table offset: %d\n") % m_shoff;
-        std::cout << boost::format("Section table entry size: %d\n") % m_shentsize;
-        std::cout << boost::format("Section table entry count: %d\n") % m_shnum;
-    }
-    
     // section iterator
     // find section with specified type, return offset & size 
-    section_t findSection(unsigned sectype);
+    section_t findSection(const char* sname);
 
     // signature section writer
     void dumpBuffer(const char *fname, const section_t& s) {
@@ -43,14 +35,13 @@ public:
     ElfDumper& operator = (const ElfDumper&) = delete;
     explicit ElfDumper(const void* header);
     
-    void dumpSignature(const char* fname) {
-        printHeader();        
-        section_t sign = findSection(SIGSECTION_TYPE);
+    void dumpSignature(const char* sname, const char* fname) {
+        section_t sign = findSection(sname);
         if(std::get<0>(sign))  // signature found
             dumpBuffer(fname, sign);
         else {
-            boost::format fmt("Can not find Signature section with type: %x");
-            fmt % SIGSECTION_TYPE;
+            boost::format fmt("Can not find section: %s");
+            fmt % sname;
             throw std::logic_error(fmt.str());
         }
     }
@@ -79,29 +70,25 @@ template<> ElfDumper<Elf64_Ehdr>::ElfDumper(const void* header)
     CONSTRUCT(Elf64_Shdr);
 };
 
-// For-loop for both iterators
-#define FOR_LOOP                                                        \
+// Iterator body for both iterators
+#define ITERATOR(STYPE)                                                 \
+    section_t section_tuple {0, 0, nullptr};                            \
+    const STYPE* sections = (const STYPE*)((const char*)m_eheader + m_shoff); \
     for(int i = 0; i < m_shnum; i++)                                    \
-        if(sections[i].sh_type == sectype)                              \
+        if(strcmp(m_strings + sections[i].sh_name, sname) == 0)         \
             return std::make_tuple(sections[i].sh_offset,               \
                                    sections[i].sh_size,                 \
-                                   m_strings + sections[i].sh_name)
-
-
+                                   m_strings + sections[i].sh_name);    \
+    return section_tuple
+ 
 // section iterator for 64-bit ELF
-template<> section_t ElfDumper<Elf64_Ehdr>::findSection(unsigned sectype) {
-    const Elf64_Shdr* sections = (const Elf64_Shdr*)((const char*)m_eheader + m_shoff);
-    section_t sigsection {0, 0, nullptr};
-    FOR_LOOP;
-    return sigsection;
+template<> section_t ElfDumper<Elf64_Ehdr>::findSection(const char* sname) {
+    ITERATOR(Elf64_Shdr);
 }
 
 // section iterator for 32-bit ELF
-template<> section_t ElfDumper<Elf32_Ehdr>::findSection(unsigned sectype) {
-    const Elf32_Shdr* sections = (const Elf32_Shdr*)((const char*)m_eheader + m_shoff);
-    section_t sigsection {0, 0, nullptr};
-    FOR_LOOP;
-    return sigsection;
+template<> section_t ElfDumper<Elf32_Ehdr>::findSection(const char* sname) {
+    ITERATOR(Elf32_Shdr);
 }
 
 
