@@ -6,6 +6,7 @@
 #include <iostream>
 #include <fstream>
 #include <exception>
+#include <type_traits>
 #include <boost/format.hpp>
 
 //ofset, size
@@ -35,6 +36,9 @@ public:
         : m_eheader(reinterpret_cast<const char*>(header)),
           m_shnum(((const T*)m_eheader)->e_shnum)
     {
+        // contract check
+        static_assert(std::is_same_v<T, Elf32_Ehdr> && std::is_same_v<S, Elf32_Shdr> ||
+                      std::is_same_v<T, Elf64_Ehdr> && std::is_same_v<S, Elf64_Shdr>);
         m_sections = (const S*)(m_eheader + ((const T*)m_eheader)->e_shoff);
         const S* ssect_header = &m_sections[((const T*)m_eheader)->e_shstrndx];
         m_strings = m_eheader + ssect_header->sh_offset;
