@@ -13,7 +13,7 @@ typedef std::pair<off_t, size_t> section_t;
 
 template <typename T, typename S> class ElfDumper {
     const char* m_eheader;  // ptr to ELF header (either Elf32_Ehdr or Elf64_Ehdr)
-    int m_shnum;            // Section table entry count
+    const int m_shnum;      // Section table entry count
     const S* m_sections;    // sections header list
     const char* m_strings;  // Section names offset
     
@@ -31,10 +31,10 @@ public:
     ElfDumper(const ElfDumper&) = delete;
     ElfDumper& operator = (const ElfDumper&) = delete;
     
-    explicit ElfDumper(const void* header)
-        : m_eheader(reinterpret_cast<const char*>(header))
+     explicit ElfDumper(const void* header)
+        : m_eheader(reinterpret_cast<const char*>(header)),
+          m_shnum(((const T*)m_eheader)->e_shnum)
     {
-        m_shnum    = ((const T*)m_eheader)->e_shnum;
         m_sections = (const S*)(m_eheader + ((const T*)m_eheader)->e_shoff);
         const S* ssect_header = &m_sections[((const T*)m_eheader)->e_shstrndx];
         m_strings = m_eheader + ssect_header->sh_offset;

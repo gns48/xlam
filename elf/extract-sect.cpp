@@ -10,12 +10,12 @@ static void extract_section(const void *base, const char* sname, const char* out
         throw std::runtime_error("Bad ELF header!");
     else if(ELFCLASS32 == magic[EI_CLASS]) {
         std::cout << "ELFCLASS32 header found\n";
-        ElfDumper<Elf32_Ehdr> ed {base};
+        ElfDumper<Elf32_Ehdr, Elf32_Shdr> ed {base};
         ed.dumpSection(sname, outfile);
     }
     else if (ELFCLASS64 == magic[EI_CLASS]) {
         std::cout << "ELFCLASS64 header found\n";
-        ElfDumper<Elf64_Ehdr> ed {base};
+        ElfDumper<Elf64_Ehdr, Elf64_Shdr> ed {base};
         ed.dumpSection(sname, outfile);
     }
     else 
