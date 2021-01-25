@@ -31,13 +31,13 @@ vigener.txt  -- encrypted message from Charles Wetherell's
 Small database of classical guitar strings. Tested on Postgres RDBMS 
 but it has nothing postgres-specific stuff.
 Data collected from public catalogues and russian online shops.
-Prices given in rubles just for reference and comarison, may be not actual.
+Prices given in rubles just for reference and comparison, may be not actual.
 
 - guitar-schema.sql: database creation script
 - guitar-schema.sh: intergration script (bash)
-- guitar-strings.csv           :
-- guitar-tensions.csv          : table data 
-- guitar-hannabach_tension.csv :
+- guitar-strings.csv: table data
+- guitar-tensions.csv: table data 
+- guitar-hannabach_tension.csv: table data
 
 ## ./
 
