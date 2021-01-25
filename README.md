@@ -29,7 +29,7 @@ vigener.txt  -- encrypted message from Charles Wetherell's
 
 ## ./guitar-strings
 Small database of classical guitar strings. Tested on Postgres RDBMS 
-but it has nothing postgres-specific staff.
+but it has nothing postgres-specific stuff.
 Data collected from public catalogues and russian online shops.
 Prices given in rubles just for reference and comarison, may be not actual.
 
