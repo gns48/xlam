@@ -1,20 +1,16 @@
-DROP SCHEMA IF EXISTS guitar CASCADE;
-CREATE SCHEMA guitar;
-
-CREATE TABLE guitar.strings(
+CREATE TABLE strings(
    brand varchar(20) not null,
-   mark  varchar(20) not null,
+   mark  varchar(20) not null primary key,
    units  varchar(16) not null,
    series varchar(32),
    tension varchar(32),
    trebles varchar(64),
    basses  varchar(64),
    remark  varchar(64),
-   price   integer,
-   primary key(brand,mark));
-CREATE INDEX strings_mark ON guitar.strings(mark);
+   price   integer);
+CREATE UNIQUE INDEX strings_bmark on strings(brand, mark);
 
-CREATE TABLE guitar.hannabach_tension(
+CREATE TABLE hannabach_tension(
    abbrev varchar(4) primary key,
    tension varchar(16) not null,
    color   varchar(24) not null,
@@ -25,18 +21,14 @@ CREATE TABLE guitar.hannabach_tension(
    a5 float not null,
    e6 float not null);
 
-create table guitar.tensions(
+create table tensions(
    brand varchar(20) not null,
-   mark varchar(20) not null,
+   mark varchar(20) not null primary key references strings,
    tension varchar(32) not null,
    e1 float not null,
    b2 float not null,
    g3 float not null,
    d4 float not null,
    a5 float not null,
-   e6 float not null,
-   primary key(brand,mark));
-CREATE INDEX tensions_mark ON guitar.tensions(mark);
-
-
-
+   e6 float not null);
+CREATE UNIQUE INDEX tensions_bmark on tensions(brand, mark);
