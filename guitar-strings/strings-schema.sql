@@ -1,9 +1,11 @@
+CREATE TABLE tension_kinds(tension varchar(16) primary key);
+   
 CREATE TABLE strings(
    brand varchar(20) not null,
    mark  varchar(20) not null primary key,
    units  varchar(16) not null,
    series varchar(32),
-   tension varchar(32),
+   tension varchar(16) references tension_kinds,
    trebles varchar(64),
    basses  varchar(64),
    remark  varchar(64),
@@ -12,7 +14,7 @@ CREATE UNIQUE INDEX strings_bmark on strings(brand, mark);
 
 CREATE TABLE hannabach_tension(
    abbrev varchar(4) primary key,
-   tension varchar(16) not null,
+   tension varchar(16) references tension_kinds,
    color   varchar(24) not null,
    e1 float not null,
    b2 float not null,
@@ -24,7 +26,7 @@ CREATE TABLE hannabach_tension(
 create table tensions(
    brand varchar(20) not null,
    mark varchar(20) not null primary key references strings,
-   tension varchar(32) not null,
+   tension varchar(16) references tension_kinds,
    e1 float not null,
    b2 float not null,
    g3 float not null,

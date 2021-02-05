@@ -1,6 +1,6 @@
 #!/bin/bash
 
-tables="strings hannabach_tension tensions"
+tables="tension_kinds strings hannabach_tension tensions"
 
 for t in $tables ; do
 	psql -c "DROP TABLE IF EXISTS $t CASCADE"
