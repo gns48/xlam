@@ -4,7 +4,7 @@ tables="tension_kinds strings hannabach_tension tensions"
 usage="Usage: $0 [<schema name>]"
 
 case $1 in
-    "-h"|"-?"|"--help"|"-help")
+    -h|-?|--help|-help)
         echo "$usage"
         exit 0
         ;;
@@ -14,14 +14,12 @@ case $1 in
         exit 1
         ;;
     *)
-        if [ -n "$1" ] ; then
-            schema="$1"
-        fi
+        schema="$1"
         ;;
 esac
 
 for t in $tables ; do
-	psql -c "DROP TABLE IF EXISTS $t CASCADE"
+    psql -c "DROP TABLE IF EXISTS $t CASCADE" ;
 done
 
 psql < strings-schema.sql
@@ -32,8 +30,14 @@ done
 
 if [ -n "$schema" ] ; then
 	psql -c "DROP SCHEMA IF EXISTS $schema CASCADE; CREATE SCHEMA $schema"
-	for t in $tables ; do psql -c "ALTER TABLE $t SET SCHEMA $schema" ; done
+	for t in $tables ; do
+        psql -c "ALTER TABLE $t SET SCHEMA $schema"
+    done
 fi
+
+
+
+
 
 
 
