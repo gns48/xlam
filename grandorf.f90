@@ -40,10 +40,10 @@ PROGRAM GRANDORF
            WRITE(*,*) "E01BEF Failed: ", IERR
         ENDIF
         
-        DEALLOCATE (PX, PY)
+        DEALLOCATE (PX,PY)
      ENDIF
      
-     DEALLOCATE (XS, YS, D)
+     DEALLOCATE (XS,YS,D)
      
   ENDIF
   STOP
