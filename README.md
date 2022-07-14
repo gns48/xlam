@@ -37,4 +37,6 @@ Small database of classical guitar strings. Tested on Postgres RDBMS
 - sqltest.sql -- some test task written in sql
 	         with joins and aggregating functions
 
+- grandorf.f90, grandorf.dat -- Per-day feeding norm for dog dry food
+
 

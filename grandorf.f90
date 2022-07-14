@@ -2,47 +2,42 @@ PROGRAM GRANDORF
   IMPLICIT NONE
   
   INTEGER N, NP, IERR, I
-  INTEGER STDIN, STDOUT
   DOUBLE PRECISION STEP
   DOUBLE PRECISION, DIMENSION(:), ALLOCATABLE :: XS, YS, PX, PY, D
-  PARAMETER (STDIN=5, STDOUT=6)
 
 ! -- Libnag externals
   EXTERNAL E01BEF, E01BFF
 
-  READ(STDIN,*) N, STEP
+  READ(*,*) N, STEP
   
   ALLOCATE(XS(N), YS(N), D(N), STAT=IERR)
 
-  IF (IERR .EQ. 0) THEN
-     READ (STDIN,*) (XS(I), YS(I), I=1,N)
+  IF (IERR == 0) THEN
+     READ(*,*) (XS(I), YS(I), I=1,N)
 
      NP = INT((XS(N)-XS(1))/STEP) + 1
-     WRITE(STDOUT,*) "Number of interpolation points: ", NP
+     WRITE(*,*) "Number of interpolation points: ", NP
 
      ALLOCATE(PX(NP), PY(NP), STAT=IERR)
-     IF (IERR .EQ. 0) THEN
+     IF(IERR == 0) THEN
         PX(1) = XS(1)
-        DO I = 2,NP
-           PX(I) = PX(I-1) + STEP
-        ENDDO
-        
+        DO 10 I = 2,NP
+10         PX(I) = PX(I-1) + STEP
+
 !    -- calculate derivatives     
         CALL E01BEF(N, XS, YS, D, IERR)
-        IF(IERR .EQ. 0) THEN 
-!    -- interpolatecat 
+        IF(IERR == 0) THEN 
+!    -- interpolate
            CALL E01BFF(N, XS, YS, D, NP, PX, PY, IERR)
-           IF(IERR .EQ. 0) THEN 
-              WRITE(STDOUT,*) "Вес собаки  Граммов в день"
-              WRITE (STDOUT, 100) (PX(I), PY(I), I=1,NP)
-              IF(PX(NP) < XS(N)) THEN
-                 WRITE (STDOUT, 100) (XS(N), YS(N))
-              ENDIF
+           IF(IERR == 0) THEN 
+              WRITE(*,*) "Вес собаки  Граммов в день"
+              WRITE(*,100) (PX(I), PY(I), I=1,NP)
+              IF(PX(NP) < XS(N)) WRITE(*,100) XS(N), YS(N)
            ELSE
-              WRITE(STDOUT,*) "E01BFF Failed: ", IERR
+              WRITE(*,*) "E01BFF Failed: ", IERR
            ENDIF
         ELSE
-           WRITE(STDOUT,*) "E01BEF Failed: ", IERR
+           WRITE(*,*) "E01BEF Failed: ", IERR
         ENDIF
         
         DEALLOCATE (PX, PY)
@@ -55,4 +50,5 @@ PROGRAM GRANDORF
   
 100 FORMAT (2F10.2)
 END PROGRAM GRANDORF
+
 
