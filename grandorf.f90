@@ -21,8 +21,9 @@ PROGRAM GRANDORF
      ALLOCATE(PX(NP), PY(NP), STAT=IERR)
      IF(IERR == 0) THEN
         PX(1) = XS(1)
-        DO 10 I = 2,NP
-10         PX(I) = PX(I-1) + STEP
+        DO I = 2,NP
+           PX(I) = PX(I-1) + STEP
+        ENDDO        
 
 !    -- calculate derivatives     
         CALL E01BEF(N, XS, YS, D, IERR)
