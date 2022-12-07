@@ -16,6 +16,10 @@ case $1 in
         exit 1
         ;;
     *)
+	if [ -z "$1" ] ; then
+		echo "No databas name specified!"
+		exit 1
+	fi
         db="$1"
         ;;
 esac
@@ -33,7 +37,6 @@ import_table () {
 .import $2.csv $2
 EOF
 }
-
 
 create_db $db $schema
 

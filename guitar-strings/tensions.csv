@@ -1,64 +1,64 @@
-savarez,510cjh,high,7.8,5.8,5.7,8.2,7.05,7.2
-savarez,510arp,normal,7.9,5.9,5.8,7.2,6.5,6.6
-savarez,510ajp,high,8.5,6.3,6.1,7.6,7.1,7
-savarez,510cj,high,7.8,5.8,5.7,7.6,7.1,7
-savarez,510mj,high,7.8,5.8,6.1,7.6,7.1,7
-savarez,510mr,normal,7.2,5.5,5.8,7.2,6.5,6.6
-savarez,510mjp,high,7.8,5.8,6.1,7.6,7.1,7
-savarez,510cr,normal,7.2,5.5,5.6,7.2,6.5,6.6
-savarez,510crh,normal,7.2,5.5,5.6,7.05,6.5,6.67
-savarez,510mrp,normal,7.2,5.5,5.8,7.2,6.5,6.6
-savarez,510cjp,high,7.8,5.8,5.7,7.6,7.1,7
-hannabach,815psht,super high,7.8,6.6,6.8,8,8,8
-hannabach,8157psht,super high,7.8,6.6,6.8,8,8,8
-hannabach,8157pht,high,7.6,6.5,6.7,7.8,7.7,7.8
-hannabach,815ppmtcar,medium,7.3,6.2,6.5,7.3,7.2,7.1
-savarez,510ar,normal,7.9,5.9,5.8,7.2,6.5,6.6
-savarez,510aj,high,8.5,6.3,6.1,7.6,7.1,7
-savarez,510arj,normal/high,7.9,5.9,5.8,7.6,7.1,7
-hannabach,8157pmt,medium,7.3,6.2,6.5,7.3,7.2,7.1
-hannabach,815plt,low,7.2,6.1,6.2,6.7,6.7,6.8
-hannabach,8157plt,low,7.2,6.1,6.2,6.7,6.7,6.8
-hannabach,815pslt,super low,7,6,6,6.5,6.6,6.5
-hannabach,8157pslt,super low,7,6,6,6.5,6.6,6.5
-hannabach,815fht,high,7.6,6.5,6.7,7.8,7.7,7.8
-hannabach,815fmt,medium,7.3,6.2,6.5,7.3,7.2,7.1
-hannabach,800ht,high,7.6,6.5,6.7,7.8,7.7,7.8
 hannabach,600ht,high,7.6,6.5,6.7,7.8,7.7,7.8
 hannabach,600mt,medium,7.3,6.2,6.5,7.3,7.2,7.1
-hannabach,825ht,high,7.6,6.5,6.7,7.8,7.7,7.8
-hannabach,825lt,low,7.2,6.1,6.2,6.7,6.7,6.8
-hannabach,827sht,super high,7.8,6.6,6.8,8,8,8
-hannabach,827ht,high,7.6,6.5,6.7,7.8,7.7,7.8
-hannabach,827slt,super low,7,6,6,6.5,6.6,6.5
-savarez,510crp,normal,7.2,5.5,5.6,7.2,6.5,6.6
+hannabach,725mht,medium high,7.5,6.4,6.6,7.5,7.4,7.5
+hannabach,725pmht,medium high,7.5,6.4,6.6,7.5,7.4,7.5
 hannabach,728ht,high,7.6,6.5,6.7,7.8,7.7,7.8
 hannabach,728lt,low,7.2,6.1,6.2,6.7,6.7,6.8
 hannabach,728mt,medium,7.3,6.2,6.5,7.3,7.2,7.1
+hannabach,800ht,high,7.6,6.5,6.7,7.8,7.7,7.8
 hannabach,800lt,low,7.2,6.1,6.2,6.7,6.7,6.8
 hannabach,800mt,medium,7.3,6.2,6.5,7.3,7.2,7.1
 hannabach,800sht,super high,7.8,6.6,6.8,8,8,8
 hannabach,800slt,super low,7,6,6,6.5,6.6,6.5
+hannabach,8157pht,high,7.6,6.5,6.7,7.8,7.7,7.8
+hannabach,8157plt,low,7.2,6.1,6.2,6.7,6.7,6.8
+hannabach,8157pmt,medium,7.3,6.2,6.5,7.3,7.2,7.1
+hannabach,8157psht,super high,7.8,6.6,6.8,8,8,8
+hannabach,8157pslt,super low,7,6,6,6.5,6.6,6.5
+hannabach,815fht,high,7.6,6.5,6.7,7.8,7.7,7.8
+hannabach,815fmt,medium,7.3,6.2,6.5,7.3,7.2,7.1
 hannabach,815ht,high,7.6,6.5,6.7,7.8,7.7,7.8
 hannabach,815lt,low,7.2,6.1,6.2,6.7,6.7,6.8
 hannabach,815mt,medium,7.3,6.2,6.5,7.3,7.2,7.1
 hannabach,815pht,high,7.6,6.5,6.7,7.8,7.7,7.8
+hannabach,815plt,low,7.2,6.1,6.2,6.7,6.7,6.8
 hannabach,815pmt,medium,7.3,6.2,6.5,7.3,7.2,7.1
+hannabach,815ppmtcar,medium,7.3,6.2,6.5,7.3,7.2,7.1
+hannabach,815psht,super high,7.8,6.6,6.8,8,8,8
+hannabach,815pslt,super low,7,6,6,6.5,6.6,6.5
 hannabach,815sht,super high,7.8,6.6,6.8,8,8,8
 hannabach,815slt,super low,7,6,6,6.5,6.6,6.5
+hannabach,825ht,high,7.6,6.5,6.7,7.8,7.7,7.8
+hannabach,825lt,low,7.2,6.1,6.2,6.7,6.7,6.8
 hannabach,825mt,medium,7.3,6.2,6.5,7.3,7.2,7.1
+hannabach,827ht,high,7.6,6.5,6.7,7.8,7.7,7.8
 hannabach,827lt,low,7.2,6.1,6.2,6.7,6.7,6.8
 hannabach,827mt,medium,7.3,6.2,6.5,7.3,7.2,7.1
+hannabach,827sht,super high,7.8,6.6,6.8,8,8,8
+hannabach,827slt,super low,7,6,6,6.5,6.6,6.5
 hannabach,850ht,high,7.6,6.5,6.7,7.8,7.7,7.8
 hannabach,850mt,medium,7.3,6.2,6.5,7.3,7.2,7.1
-savarez,510arjp,normal/high,7.9,5.9,5.8,7.6,7.1,7
-savarez,510crjp,normal/high,7.2,5.5,5.6,7.6,7.1,7
-savarez,510crj,normal/high,7.2,5.5,5.6,7.6,7.1,7
-savarez,510mrjp,normal/high,7.2,5.5,5.8,7.6,7.1,7
-hannabach,725pmht,medium high,7.5,6.4,6.6,7.5,7.4,7.5
-hannabach,725mht,medium high,7.5,6.4,6.6,7.5,7.4,7.5
-hannabach,900ppmht,medium high,7.5,6.4,6.6,7.5,7.4,7.5
 hannabach,9007pcar,medium high,7.5,6.4,6.6,7.5,7.4,7.5
 hannabach,9007pmht,medium high,7.5,6.4,6.6,7.5,7.4,7.5
 hannabach,900mht,medium high,7.5,6.4,6.6,7.5,7.4,7.5
+hannabach,900ppmht,medium high,7.5,6.4,6.6,7.5,7.4,7.5
 hannabach,950mht,medium high,7.5,6.4,6.6,7.5,7.4,7.5
+savarez,510aj,high,8.5,6.3,6.1,7.6,7.1,7
+savarez,510ajp,high,8.5,6.3,6.1,7.6,7.1,7
+savarez,510arj,normal/high,7.9,5.9,5.8,7.6,7.1,7
+savarez,510arjp,normal/high,7.9,5.9,5.8,7.6,7.1,7
+savarez,510ar,normal,7.9,5.9,5.8,7.2,6.5,6.6
+savarez,510arp,normal,7.9,5.9,5.8,7.2,6.5,6.6
+savarez,510cjh,high,7.8,5.8,5.7,8.2,7.05,7.2
+savarez,510cj,high,7.8,5.8,5.7,7.6,7.1,7
+savarez,510cjp,high,7.8,5.8,5.7,7.6,7.1,7
+savarez,510crh,normal,7.2,5.5,5.6,7.05,6.5,6.67
+savarez,510crj,normal/high,7.2,5.5,5.6,7.6,7.1,7
+savarez,510crjp,normal/high,7.2,5.5,5.6,7.6,7.1,7
+savarez,510cr,normal,7.2,5.5,5.6,7.2,6.5,6.6
+savarez,510crp,normal,7.2,5.5,5.6,7.2,6.5,6.6
+savarez,510mj,high,7.8,5.8,6.1,7.6,7.1,7
+savarez,510mjp,high,7.8,5.8,6.1,7.6,7.1,7
+savarez,510mrjp,normal/high,7.2,5.5,5.8,7.6,7.1,7
+savarez,510mr,normal,7.2,5.5,5.8,7.2,6.5,6.6
+savarez,510mrp,normal,7.2,5.5,5.8,7.2,6.5,6.6
